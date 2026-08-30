@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - DATABASE_URL=sqlite:///./app.db
+      - ALLOWED_ORIGINS=http://localhost:8501
+      - CHATBOT_ENGINE=rule_based
+    volumes:
+      - ./models:/app/models:ro   # read-only mount — the container can't modify trained models
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:7860/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
