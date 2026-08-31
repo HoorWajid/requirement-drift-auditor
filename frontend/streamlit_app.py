@@ -9,7 +9,7 @@ import requests
 import pandas as pd
 import plotly.graph_objects as go
 
-API_URL = st.secrets.get("API_URL", "http://localhost:8000")
+API_URL =st.secrets.get("API_URL", "http://localhost:8000")
 
 if "session" not in st.session_state:
     st.session_state.session = requests.Session()
