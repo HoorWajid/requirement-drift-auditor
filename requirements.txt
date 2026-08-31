@@ -21,3 +21,5 @@ python-magic-bin==0.4.14
 bleach==6.4.0
 streamlit==1.38.0
 requests==2.33.0
+plotly==7.0.0
+matlplotlib==3.11.1
